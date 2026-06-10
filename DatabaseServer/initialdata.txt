@@ -16,10 +16,10 @@ INSERT INTO Person
         ('Zulkifl', 'Khan', 'khanz', 'kiwi8', 3),
         ('Matthew', 'Musk', 'muskm', 'apple1', 1),
         ('Daniel', 'Sow', 'sowd', 'orange2', 2),
-        ('Daniel', 'Geng', 'gengd', 'orange 3', 1),
-        ('Micah', 'Wild', 'wildm', 'chickenandchips', 3),
+        ('Daniel', 'Geng', 'gengd', 'orange3', 1),
+        ('Micah', 'Wild', 'wildm', 'chickenandchips4', 3),
         ('Oscar', 'Danby', 'danbyo', 'banana15', 1),
-        ('Austin', 'Bowker', 'bouwkera', 'buck2', 2),
+        ('Austin', 'Bowker', 'bouwkera', 'FYmatty', 2),
         ('The', 'Bank', 'banker', 'secret', 4);
 
 CREATE TABLE Payment (
