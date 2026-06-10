@@ -17,7 +17,8 @@ INSERT INTO Person
         ('Matthew', 'Musk', 'muskm', 'apple1', 1),
         ('Daniel', 'Sow', 'sowd', 'orange2', 2),
         ('Daniel', 'Geng', 'gengd', 'orange 3', 1),
-        ('Micah', 'Wild', 'wildm', 'chickenandchips', 5),
+        ('Micah', 'Wild', 'wildm', 'chickenandchips', 3),
+        ('Oscar', 'Danby', 'danbyo', 'banana15', 1),
         ('The', 'Bank', 'banker', 'secret', 4);
 
 CREATE TABLE Payment (
