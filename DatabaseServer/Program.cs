@@ -81,7 +81,9 @@ while (running)
                 int PaymentID = rTransactions.GetInt32(0);
                 int GiverID = rTransactions.GetInt32(1);
                 int RecipientID = rTransactions.GetInt32(2);
-
+                int Amount = rTransactions.GetInt32(3);
+                string Description = rTransactions.GetString(4);
+                Console.WriteLine($"{PaymentID}|{GiverID}|{RecipientID}|£{Amount}|{Description}");
             }
             // get list of money given
             //sql = $"SELECT * FROM Payment WHERE GiverID={id}";*/
