@@ -74,7 +74,7 @@ while (running)
 
             // get list of money received
             string sql = "SELECT Payment.*, Person.FirstName, Person.LastName FROM Payment " + 
-                "JOIN Person ON Payment.RecipientID = Person.PersonID " +
+                "JOIN Person ON Payment.GiverID = Person.PersonID " +
                 $"WHERE RecipientID={id}";
 
             SqliteCommand transactions = c.CreateCommand();
@@ -87,11 +87,12 @@ while (running)
                 int GiverID = rTransactions.GetInt32(1);
                 int RecipientID = rTransactions.GetInt32(2);
                 int Amount = rTransactions.GetInt32(3);
-                string Description = rTransactions.GetString(4)
+                string Date = rTransactions.GetString(4);
+                string Description = rTransactions.GetString(4);
                 string FirstName = rTransactions.GetString(4);
                 string LastName = rTransactions.GetString(5);
                 balance += Amount;
-                Console.WriteLine($"{PaymentID,5}|{FirstName,5}|{LastName,5}|{GiverID,5}|{RecipientID,5}|£{Amount,5}|{Description,5}");
+                Console.WriteLine($"{PaymentID,5}|{Date,10}|{FirstName,5}|{LastName,5}|{GiverID,5}|{RecipientID,5}|£{Amount,5}|{Description,5}");
 
             }
             sql = $"SELECT * FROM Payement WHERE GiverID={id}";
