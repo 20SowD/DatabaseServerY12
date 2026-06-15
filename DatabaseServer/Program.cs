@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.Sqlite;
+using System.Data;
 using System.Runtime.CompilerServices;
 
 // See https://aka.ms/new-console-template for more information
@@ -72,19 +73,32 @@ while (running)
             Console.WriteLine($"{id,5}|{firstname,15}|{lastname,15}|{username,15}:{password,15}");
 
             // get list of money received
-            string sql = $"SELECT * FROM Payment WHERE RecipientID={id}";
+            string sql = "SELECT Payment.*, Person.FirstName, Person.LastName FROM Payment " + 
+                "JOIN Person ON Payment.RecipientID = Person.PersonID " +
+                $"WHERE RecipientID={id}";
+
             SqliteCommand transactions = c.CreateCommand();
             transactions.CommandText = sql;
             SqliteDataReader rTransactions = transactions.ExecuteReader();
+            Console.WriteLine($"Payments received:");
             while(rTransactions.Read())
             {
                 int PaymentID = rTransactions.GetInt32(0);
                 int GiverID = rTransactions.GetInt32(1);
                 int RecipientID = rTransactions.GetInt32(2);
                 int Amount = rTransactions.GetInt32(3);
-                string Description = rTransactions.GetString(4);
-                Console.WriteLine($"{PaymentID}|{GiverID}|{RecipientID}|£{Amount}|{Description}");
+                string Description = rTransactions.GetString(4)
+                string FirstName = rTransactions.GetString(4);
+                string LastName = rTransactions.GetString(5);
+                balance += Amount;
+                Console.WriteLine($"{PaymentID,5}|{FirstName,5}|{LastName,5}|{GiverID,5}|{RecipientID,5}|£{Amount,5}|{Description,5}");
+
             }
+            sql = $"SELECT * FROM Payement WHERE GiverID={id}";
+            transactions = c.CreateCommand();
+            transactions.CommandText = sql;
+            rTransactions = transactions.ExecuteReader();
+            Console.WriteLine();
             // get list of money given
             //sql = $"SELECT * FROM Payment WHERE GiverID={id}";*/
 
